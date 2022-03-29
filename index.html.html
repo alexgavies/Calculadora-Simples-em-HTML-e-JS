@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="estilocalc.css">
+</head>
+<body>
+    <h1> Calculadora Simples</h1>
+    <section>
+        <div id="visor"></div>
+        <button class="tecla" onclick="voltar()">Voltar</button>
+        <button class="tecla" onclick="limpar()">Limpar</button>
+        <button id="1" onclick="dig(1)">1</button>
+        <button id="2" onclick="dig(2)">2</button>
+        <button id="3" onclick="dig(3)">3</button>
+        <button id="divi" onclick="dig('/')">/</button>
+        <button id="4" onclick="dig(4)">4</button>
+        <button id="5" onclick="dig(5)">5</button>
+        <button id="6" onclick="dig(6)">6</button>
+        <button id="mult" onclick="dig('*')">X</button>
+        <button id="7" onclick="dig(7)">7</button>
+        <button id="8" onclick="dig(8)">8</button>
+        <button id="9" onclick="dig(9)">9</button>
+        <button id="subi" onclick="dig('-')">-</button>
+        <button id="pont" onclick="dig('.')">,</button>
+        <button id="0" onclick="dig(0)">0</button>
+        <button id="res" onclick="calc()" >=</button>
+        <button id="soma" onclick="dig('+')">+</button>
+    </section>
+</body>
+<script>
+    //func para salvar numero em variavel e imprimir no visor
+    function dig(num) {
+        var numero = document.getElementById('visor').innerHTML;
+        document.getElementById('visor').innerHTML = numero +num
+    }
+    // func para limpar var o visor
+    function limpar() {
+        document.getElementById('visor').innerHTML=''
+    }
+    //func para apagra apena o ultimo numero adicionado
+    function voltar() {
+        var res=document.getElementById('visor').innerHTML;
+        document.getElementById('visor').innerHTML =res.substring(0, res.length -1)
+    }
+    //func para executar o conteudo da div visor
+    //o comando eval ira avaliar e executar tudo que esta na div 
+    function calc() {
+        var res=document.getElementById('visor').innerHTML;
+        if(visor)
+        {
+        document.getElementById('visor').innerHTML=eval(res);
+        }
+    }
+</script>
+</html>
